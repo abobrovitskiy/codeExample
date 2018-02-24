@@ -1,0 +1,36 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>chapter_001</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <parent>
+        <groupId>ru.testing</groupId>
+        <artifactId>testing</artifactId>
+        <version>1.0</version>
+    </parent>
+	<build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+			<finalName>filesorter</finalName>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>ru.testing.filesorter.Start</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
